@@ -50,7 +50,7 @@ git clone https://github.com/yourusername/smartmart.git
 
 ## 👤 Author
 
-**Muhammad Nasrullah Mohd Nizzam**  
+**Muhammad Nasrullah Bin Mohd Nizzam**  
 Creator of SmartMart – Made for school project / personal learning  
 Follow me on Instagram: [@smartmart.official](https://instagram.com/smartmart.official)
 
