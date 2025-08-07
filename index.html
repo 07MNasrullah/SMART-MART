@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMart - Your Everyday Mini Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-store"></i>
+                <h1>SmartMart</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="cart-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <a href="admin.php" class="admin-link">
+                    <i class="fas fa-cog"></i>
+                    Admin
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to SmartMart!</h2>
+            <p>Your all-in-one mini shop for stationery, snacks, drinks & more</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-box"></i>
+                    <span>500+ Products</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>Fast Delivery</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span>Best Prices</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/264547/pexels-photo-264547.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Store Items">
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('stationery')">
+                    <div class="category-icon">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <h3>Stationery</h3>
+                    <p>Pens, books, rulers & more</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('food')">
+                    <div class="category-icon">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h3>Food & Snacks</h3>
+                    <p>Instant noodles, biscuits, candy</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('beverage')">
+                    <div class="category-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h3>Beverages</h3>
+                    <p>Water, Milo, soft drinks</p>
+                </div>
+                <div class="category-card" onclick="filterProducts('others')">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Others</h3>
+                    <p>Masks, tissues, phone top-up</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Our Products</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+                    <button class="filter-btn" onclick="filterProducts('stationery')">Stationery</button>
+                    <button class="filter-btn" onclick="filterProducts('food')">Food</button>
+                    <button class="filter-btn" onclick="filterProducts('beverage')">Beverages</button>
+                    <button class="filter-btn" onclick="filterProducts('others')">Others</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="bestsellers">
+        <div class="container">
+            <h2>Best Sellers</h2>
+            <div class="bestsellers-grid" id="bestsellersGrid">
+                <!-- Best sellers will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About SmartMart</h2>
+                    <p>SmartMart is your convenient online mini store, designed specifically for students, teachers, and school communities. We offer everything you need for your daily school life - from essential stationery to delicious snacks and refreshing beverages.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Quick & Easy Ordering</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Affordable Prices</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <span>Student-Friendly Service</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://ideogram.ai/assets/image/lossless/response/DUrGuf7LSdmDnTAt3jAFjA" alt="Students shopping">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>School Canteen, Level 1<br>SMK TINGGI BUKIT MERTAJAM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+60 12-564 9636</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>smartmart.official</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>+60 12-387-8544</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-hours">
+                    <h3>Operating Hours</h3>
+                    <div class="hours">
+                        <div class="hour-item">
+                            <span>Monday - Friday</span>
+                            <span>7:30 AM - 5:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Saturday</span>
+                            <span>8:00 AM - 2:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-store"></i>
+                        <h3>SmartMart</h3>
+                    </div>
+                    <p>Your trusted mini online store for all school essentials.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" onclick="filterProducts('stationery')">Stationery</a></li>
+                        <li><a href="#" onclick="filterProducts('food')">Food & Snacks</a></li>
+                        <li><a href="#" onclick="filterProducts('beverage')">Beverages</a></li>
+                        <li><a href="#" onclick="filterProducts('others')">Others</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+    <h4>Follow Us</h4>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        
+                         <!-- Instagram -->
+                        <a href="https://instagram.com/smartmart.official" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/60125649636" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <!-- Telegram -->
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        </a>
+                    </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SmartMart .BY NASRULLAH. | Made with ❤️ for students</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: RM <span id="cartTotal">0.00</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Checkout</h3>
+                <button class="close-modal" onclick="closeCheckoutModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="checkoutForm" action="data.php" method="post">
+                    <div class="form-group">
+                        <label for="customerName">Full Name *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerClass">Class/Room *</label>
+                        <input type="text" id="customerClass" placeholder="e.g., 5 Bestari, Room 101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number *</label>
+                        <input type="tel" id="customerPhone" placeholder="+60 12-345 6789" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryTime">Preferred Delivery Time</label>
+                        <select id="deliveryTime">
+                            <option value="recess">Recess Time (10:30 AM)</option>
+                            <option value="lunch">Lunch Time (12:30 PM)</option>
+                            <option value="after-school">After School (2:30 PM)</option>
+                            <option value="asap">As Soon As Possible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialInstructions">Special Instructions</label>
+                        <textarea id="specialInstructions" placeholder="Any special requests or delivery instructions..."></textarea>
+                    </div>
+                    <div class="order-summary">
+                        <h4>Order Summary</h4>
+                        <div id="checkoutItems"></div>
+                        <div class="checkout-total">
+                            <strong>Total: RM <span id="checkoutTotal">0.00</span></strong>
+                        </div>
+                    </div>
+                    <div class="checkout-buttons">
+                        <button type="button" class="whatsapp-btn" onclick="checkoutViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            Order via WhatsApp
+                        </button>
+                        <button type="button" class="form-btn" onclick="checkoutViaForm()">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Order Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <span>Product added to cart!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
